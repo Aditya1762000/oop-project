@@ -1,0 +1,247 @@
+package converter;
+import java.util.*;
+import Package.*;
+class robot{
+	public void check(int a, String sr) {
+		System.out.println("Entred integer ="+a+" and name ="+sr);
+	}
+	public void check(String sr, int a) {
+		System.out.println("Entered name ="+sr+" and integer ="+a);
+	}
+}
+class weights{
+	double weight;
+	String Unit;
+	weights(double weight, String Unit){
+		this.weight=weight;
+		this.Unit=Unit;
+	}
+	public void comment() {
+		System.out.println("This programm is about weight and temp conversion.");
+		System.out.println("You have choosen "+weight+"into"+Unit+" to convert into pound,gram,ounce,miligram,microgram.");
+		}
+	
+}
+class pound extends weights{
+	pound(double weight,String Unit){
+		super(weight,Unit);
+	}
+	public void kiloToPound(double a) {
+	double store;
+		store=a*2.204;
+		System.out.println(a+"kg ="+store+"Lbs.");
+	}
+	public void poundToKilo(double b) {
+		double st;
+		st=b/2.204;
+		System.out.println(b+"Lbs ="+st+"Kg(s)");
+	}
+	
+}
+class gram extends weights{
+	gram(double weight,String Unit){
+		super(weight,Unit);
+	}
+	public void kiloToGram(double c) {
+		double str;
+		str=c*1000;
+		System.out.println(c+"Kg ="+str+"gm(s)");
+	}
+	public void gramToKilo(double a1)
+	{
+		double store1;
+		store1=a1/1000;
+		System.out.println(a1+"gm ="+store1+"kg(s)");
+	}
+}
+class miligram extends weights{
+	miligram(double weight,String Unit)
+	{
+		super(weight,Unit);
+	}
+	public void kiloToMiligram(double b1) {
+		double store2;
+		store2=b1*1000;
+		System.out.println(b1+"kg ="+store2+"mg(s)");
+	}
+	public void miligramToKilo(double c1){
+		double store3;
+		store3=c1/1000;
+		System.out.println(c1+"mg ="+store3+"kg(s)");
+	}
+}
+class OUNCE extends weights{
+	OUNCE(double weight,String Unit)
+	{
+		super(weight,Unit);
+	}
+	public void kiloToOunce(double d) {
+		double store4;
+		store4=d*35.274;
+		System.out.println(d+"kg ="+store4+"ounce(s)");
+	}
+	public void ounceToKilo(double d1){
+		double store5;
+		store5=d1/35.274;
+		System.out.println(d1+"ounce ="+store5+"kg(s)");
+	}
+}
+class microgram extends weights{
+	microgram(double weight,String Unit)
+	{
+		super(weight,Unit);
+	}
+	public void kiloToMicrogram(double e) {
+		double store6;
+		store6=e*1000000;
+		System.out.println(e+"kg ="+store6+"ug(s)");
+	}
+	public void ounceToKilo(double e1){
+		double store7;
+		store7=e1/1000000;
+		System.out.println(e1+"ug ="+store7+"kg(s)");
+	}
+}
+interface temprature{
+	public void temp(double d);
+}
+class celsiusFarenheight  implements temprature{
+	public void temp(double e) {
+		double stor;
+		stor=e*(9/5)+32;
+		System.out.println(e+" degree celsius ="+stor+" Faherenheit.");
+	}
+}
+class celsiuskelvin  implements temprature{
+	public void temp(double f) {
+		double str;
+		str=f+273.15;
+		System.out.println(f+" degree celsius ="+str+" Kelvin");
+	}
+}
+abstract class writer{
+	public void write() {
+		
+	}
+}
+class writerintro extends writer{
+public void write() {
+		System.out.println("This programm is written by :-");
+		System.out.println("Name:-Aditya Mishra.");
+		System.out.println("USN:-4NI19IS008");
+		System.out.println("Branch:-ISE");
+		System.out.println("Section:-A");
+		System.out.println("The National institute of engineering.");
+	}
+}
+ class Aditya extends Thread{
+	public void run() {
+		try {
+			Thread.sleep(5000);
+		}
+		catch(InterruptedException e){
+			System.out.println(e);
+		}
+		System.out.println("the program is terminating");
+		System.out.println("the program end here"");
+		System.out.println("the program is terminated");
+		}
+	}
+public class weight{
+	public static void main(String [] args) {
+		try{Scanner sc = new Scanner(System.in);
+		System.out.println("Enter any integer then any name.");
+		int a=sc.nextInt();
+		String srt=sc.next();
+		robot obje1=new robot();
+		obje1.check(a,srt);
+		System.out.println("Enter any name then any integer.");
+		String ser=sc.next();
+		int v=sc.nextInt();
+		obje1.check(ser, v);
+		System.out.println("Enter the type of conversion u want:- 1. weight 2.Temprature.");
+		String var=sc.next();
+		if("weight".equals(var))
+		{
+			System.out.println("Enter the unit you want to choose for conersion pound,gram,ounce,miligram,microgram,kilogram.");
+			String un=sc.next();
+			System.out.println("Enter the magnitude for conversion.");
+			double mag=sc.nextInt();
+			if("Lbs".equals(un)) {
+				pound a1=new pound(mag,un);
+				a1.comment();
+				a1.kiloToPound(mag);
+				
+			}
+			else if("gm".equals(un)) {
+				gram a2=new gram(mag,un);
+				a2.comment();
+				a2.kiloToGram(mag);
+			}
+			else if("ounce".equals(un)) {
+				OUNCE a3=new OUNCE(mag,un);
+				a3.comment();
+				a3.kiloToOunce(mag);
+			}
+			else if("mg".equals(un)) {
+				 miligram a4=new  miligram(mag,un);
+				 a4.comment();
+				 a4.kiloToMiligram(mag);
+			}
+			else if("ug".equals(un)) {
+				microgram a5=new microgram(mag,un);
+				a5.comment();
+				a5.kiloToMicrogram(mag);
+			}
+			
+			else {
+				System.out.println("Invalid unit.");
+			}
+		}
+		else if("Temprature".equals(var)) {
+			
+			System.out.println("Enter the unit in which you want to convert. 1.F 2.K");
+			String unt=sc.next();
+			if("F".equals(unt)) {
+				System.out.println("Enter the magnitude in celsius to conert into fahrenheight.");
+				int magn=sc.nextInt();
+				celsiusFarenheight a6=new celsiusFarenheight();
+				a6.temp(magn);
+			}
+			else if("K".equals(unt)) {
+				System.out.println("Enter the magnitude in celsius to conert into kelvin.");
+				int magn=sc.nextInt();
+				celsiuskelvin a7=new celsiuskelvin();
+				a7.temp(magn);
+			}
+			else {
+				System.out.println("Invalid unit selection.");
+			}
+		}
+		else {
+			System.out.println("You enetred invalid option.");
+		}
+		sc.close();}
+		catch(Exception e) {
+			System.out.println("An exception is caught "+e);
+		}
+		finally {
+			writerintro a8=new writerintro();
+			a8.write();
+			Packageimplemntation t=new Packageimplemntation();
+			t.Instructor();
+			Aditya a9=new Aditya();
+			a9.run();
+		}
+	}
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------
+package Package;
+
+public class Packageimplemntation {
+public  void Instructor( ) {
+	System.out.println("Tis project is done under the guidance of our respected teacher Mr. Suhaas K P.");
+	System.out.println("This project helped me a lot in learning the oops concept of java betteraly.");
+	System.out.println("I would like to thanks our course instructor for providing me oppurtunity to become better through trhis project.");
+}
+}
